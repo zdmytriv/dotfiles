@@ -10,11 +10,16 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# Vars
+SCRIPTS='~/workspace/Scripts'
+
 # Goodies
 alias ll='ls -l'
+alias kc='kubectl'
+alias port='function _port(){ lsof -i TCP:$1; };_port'
 alias git-log='git log --pretty=oneline --abbrev-commit'
-alias idiff="~/workspace/Scripts/idiff.sh"
-alias pr="~/workspace/Scripts/fetch_pr.sh"
+alias idiff="$SCRIPTS/idiff.sh"
+alias pr="$SCRIPTS/fetch_pr.sh"
 alias weather='curl wttr.in/lviv'
 
 # Maven
