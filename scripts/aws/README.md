@@ -29,3 +29,19 @@ B-App2-dev-01-app-11                                                 i-004444444
 BastionAutoScalingGroup                                              i-00555555555555555  10.10.0.5      1.2.3.4
 -------------------------------------------------------------------  -------------------  -------------  -------------
 ```
+
+### More
+
+Two aliases can created like
+```
+alias ebt="dotfiles/scripts/aws/ebt.py"
+alias ec2="dotfiles/scripts/aws/ec2.py"
+```
+So these scripts can be used like this from anywhere
+```
+ec2 profile-dev
+
+# and
+
+ebt profile-dev
+```
