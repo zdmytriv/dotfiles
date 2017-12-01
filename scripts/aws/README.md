@@ -14,7 +14,7 @@ and result would be
 ------------  --------------------  -------------------------------------------------------  ------------------------------------------  ----------------
 ```
 
-### List EC2 instances
+### List EC2 instances:
 ```
 ./ec2.py <profile-name>
 ```
@@ -32,12 +32,12 @@ BastionAutoScalingGroup                                              i-005555555
 
 ### More
 
-Two aliases can created like
+Two aliases can be created like
 ```
 alias ebt="dotfiles/scripts/aws/ebt.py"
 alias ec2="dotfiles/scripts/aws/ec2.py"
 ```
-So these scripts can be used like this from anywhere
+so these scripts can be used like this from anywhere
 ```
 ec2 profile-dev
 
