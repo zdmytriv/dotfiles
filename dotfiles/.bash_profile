@@ -10,8 +10,17 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# System
+alias ll='ls -GFhl'
+alias lh='ls -FGlAhp'
+alias cp='cp -v'
+alias mv='mv -v'
+alias mkdir='mkdir -v'
+alias git-log='git log --pretty=oneline --abbrev-commit'
+alias weather='curl wttr.in/lviv'
+alias port='function _port(){ lsof -i TCP:$1; };_port'
+
 # Goodies
-alias ll='ls -l'
 alias kc='kubectl'
 alias port='function _port(){ lsof -i TCP:$1; };_port'
 alias git-log='git log --pretty=oneline --abbrev-commit'
