@@ -24,6 +24,11 @@ alias port='function _port(){ lsof -i TCP:$1; };_port'
 alias kc='kubectl'
 alias port='function _port(){ lsof -i TCP:$1; };_port'
 alias git-log='git log --pretty=oneline --abbrev-commit'
+alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias dnsflush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias http-ngrok="ngrok http "
+alias simple-server="python -m SimpleHTTPServer "
 alias weather='curl wttr.in/lviv'
 
 # Scripts
