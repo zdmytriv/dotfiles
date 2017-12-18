@@ -5,11 +5,17 @@ import sys
 import boto3
 from tabulate import tabulate
 
+# Usage:
+#   python3 ./route53 vgs-dev
+# or to show all including NS, MX and SOA
+#   python3 ./route53 vgs-dev all
+
 if len(sys.argv) < 2:
     print("Please specify aws profile name")
     exit(1)
 
 profile_name = sys.argv[1]
+show_all = len(sys.argv) > 2
 
 def list_routes(aws_profile):
     aws_region = 'us-west-2' if aws_profile.endswith("-dev") else 'us-east-1'
@@ -29,8 +35,8 @@ def list_routes(aws_profile):
         added = False
 
         for record in records:
-            # if record['Type'] in ['NS', 'MX', 'SOA']:
-            #     continue
+            if not show_all and record['Type'] not in ['CNAME', 'A']:
+                 continue
 
             result = []
             if not added:

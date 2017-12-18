@@ -34,9 +34,22 @@ BastionAutoScalingGroup                                              i-005555555
 ```
 ./route53.py <profile-name>
 ```
+
 and result would be
+
 ```
 ./route53.py profile-dev
+---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
+mydomain.com.    4   account                      CNAME  staging.mydomain.com
+                     dashboard                    CNAME  77ec929dde26.cloudfront.net
+mydomain.io.     2   \052.sandbox                 A      active-app-dev-01-app-1.us-west-2.elasticbeanstalk.com.
+---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
+```
+
+or to show all record types
+
+```
+./route53.py profile-dev all
 ---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
 mydomain.com.    4   api                          TXT    "9d14c756-e40d-11e7-80fd-77ec929dde26"
                      account                      CNAME  staging.mydomain.com
@@ -67,6 +80,11 @@ ebt profile-dev
 ```
 
 #### Routes
+Show only `CNAME` and `A`
 ```
 route53 profile-dev
+```
+or show all record types including `NS`, `MX`, `SOA`, `TXT`
+```
+route53 profile-dev all
 ```
