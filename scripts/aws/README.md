@@ -30,18 +30,43 @@ BastionAutoScalingGroup                                              i-005555555
 -------------------------------------------------------------------  -------------------  -------------  -------------
 ```
 
+### List Route53 records:
+```
+./route53.py <profile-name>
+```
+and result would be
+```
+./route53.py profile-dev
+---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
+mydomain.com.    4   api                          TXT    "9d14c756-e40d-11e7-80fd-77ec929dde26"
+                     account                      CNAME  staging.mydomain.com
+                     dashboard                    CNAME  77ec929dde26.cloudfront.net
+                     _acme-challenge.power        TXT    "9d14c756-e40d-11e7-80fd-77ec929dde26"
+mydomain.io.     2   mydomain.io                  TXT    "google-site-verification=9d14c756-e40d-11e7-80fd-77ec929dde26"
+                     \052.sandbox                 A      active-app-dev-01-app-1.us-west-2.elasticbeanstalk.com.
+---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
+```
+
 ### More
 
-Two aliases can be created like
+Also aliases can be created like
 ```
 alias ebt="dotfiles/scripts/aws/ebt.py"
 alias ec2="dotfiles/scripts/aws/ec2.py"
+alias route53="dotfiles/scripts/aws/route53.py"
 ```
 so these scripts can be used like this from anywhere
+#### Instances
 ```
 ec2 profile-dev
+```
 
-# and
-
+#### ElasticBeanstalk apps
+```
 ebt profile-dev
+```
+
+#### Routes
+```
+route53 profile-dev
 ```
