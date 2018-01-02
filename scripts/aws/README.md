@@ -41,7 +41,7 @@ and result would be
 ./route53.py profile-dev
 ---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
 mydomain.com.    4   account                      CNAME  staging.mydomain.com
-                     dashboard                    CNAME  77ec929dde26.cloudfront.net
+                     dashboard                    CNAME  77ec929dde88.cloudfront.net
 mydomain.io.     2   \052.sandbox                 A      active-app-dev-01-app-1.us-west-2.elasticbeanstalk.com.
 ---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
 ```
@@ -51,13 +51,30 @@ or to show all record types
 ```
 ./route53.py profile-dev all
 ---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
-mydomain.com.    4   api                          TXT    "9d14c756-e40d-11e7-80fd-77ec929dde26"
+mydomain.com.    4   api                          TXT    "9d14c756-e40d-11e7-80fd-77ec929dde88"
                      account                      CNAME  staging.mydomain.com
-                     dashboard                    CNAME  77ec929dde26.cloudfront.net
-                     _acme-challenge.power        TXT    "9d14c756-e40d-11e7-80fd-77ec929dde26"
-mydomain.io.     2   mydomain.io                  TXT    "google-site-verification=9d14c756-e40d-11e7-80fd-77ec929dde26"
+                     dashboard                    CNAME  77ec929dde88.cloudfront.net
+                     _acme-challenge.power        TXT    "9d14c756-e40d-11e7-80fd-77ec929dde88"
+mydomain.io.     2   mydomain.io                  TXT    "google-site-verification=9d14c756-e40d-11e7-80fd-77ec929dde88"
                      \052.sandbox                 A      active-app-dev-01-app-1.us-west-2.elasticbeanstalk.com.
 ---------------  --  ---------------------------  -----  ----------------------------------------------------------------------------------
+```
+
+
+### List env vars:
+Need to specify profile and app name. App name can be retrieved from `ebt` command
+```
+./vars.py <profile-name> <app-name>
+```
+
+result would be
+```
+------------------  ---------
+APP_ENVIRONMENT     dev
+VAR1                true
+VAR2                100
+...                 ...
+------------------  ---------
 ```
 
 ### More
@@ -87,4 +104,19 @@ route53 profile-dev
 or show all record types including `NS`, `MX`, `SOA`, `TXT`
 ```
 route53 profile-dev all
+```
+
+#### Vars
+```
+./vars.py profile-dev A-app-01
+```
+
+result would be
+```
+------------------  ---------
+APP_ENVIRONMENT     dev
+VAR1                true
+VAR2                100
+...                 ...
+------------------  ---------
 ```
