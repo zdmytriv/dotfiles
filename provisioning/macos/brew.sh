@@ -18,3 +18,5 @@ brew install transmission
 brew install tree
 brew install youtube-dl
 brew install zsh
+brew install wget
+brew install gnu-tar

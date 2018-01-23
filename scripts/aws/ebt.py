@@ -3,6 +3,7 @@
 import sys
 
 import boto3
+import re
 from tabulate import tabulate
 
 if len(sys.argv) < 2:
@@ -28,7 +29,7 @@ def list_envs(aws_profile):
 
         env_name = ebt_env['EnvironmentName']
 
-        cname = ebt_env['CNAME']
+        cname = "" if 'CNAME' not in ebt_env else re.sub('.' + aws_region + '.elasticbeanstalk.com', '', ebt_env['CNAME'])
         health = ebt_env['Health']
         health_status = ebt_env['HealthStatus'] if 'HealthStatus' in ebt_env else "N/A"
         status = ebt_env['Status']
