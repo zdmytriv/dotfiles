@@ -20,3 +20,5 @@ brew install youtube-dl
 brew install zsh
 brew install wget
 brew install gnu-tar
+brew install automake
+brew install libtool
