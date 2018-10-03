@@ -28,12 +28,12 @@ def list_envs(aws_profile):
         id = instance['InstanceId']
         private_ip = instance['PrivateIpAddress'] if 'PrivateIpAddress' in instance else '-'
         public_ip = instance['PublicIpAddress'] if 'PublicIpAddress' in instance else '-'
-        tags = instance['Tags']
-
-        for tag in tags:
-            if tag['Key'] == 'Name':
-                result.append([tag['Value'], id, private_ip, public_ip])
-                break
+        
+        if 'Tags' in instance:
+            for tag in instance['Tags']:
+                if tag['Key'] == 'Name':
+                    result.append([tag['Value'], id, private_ip, public_ip])
+                    break
 
     result = sorted(result, key=lambda k: k[0])
 

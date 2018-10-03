@@ -28,8 +28,10 @@ alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias dnsflush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias http-ngrok="ngrok http "
-alias simple-server="python -m SimpleHTTPServer "
+alias www="python -m SimpleHTTPServer "
 alias weather='curl wttr.in/lviv'
+alias ipe='curl ipinfo.io/ip'
+alias ipi='ipconfig getifaddr en0'
 
 # Scripts
 SCRIPTS='~/workspace/Scripts'

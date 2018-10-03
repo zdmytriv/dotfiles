@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BACKUP_DIR=${BACKUP_DIR:-$HOME}
-STORAGE_DIR=${STORAGE_DIR:-'/Volumes/Dumpster/Backup'}
+STORAGE_DIR=${STORAGE_DIR:-'/Volumes/Bckp'}
 DIR_NAME=${DIR_NAME:-`date "+%Y-%m-%d-%V"`}
 
 if [ ! -d "$STORAGE_DIR" ]
@@ -28,18 +28,29 @@ time rsync --archive --recursive --progress \
 	--exclude 'Movies' \
 	--exclude 'Music' \
 	--exclude 'Podcasts' \
+    --exclude 'bower_components' \
+	--exclude 'Pictures' \
 	--exclude 'Public' \
+	--exclude 'venvs' \
 	--exclude 'tmp' \
+    --exclude 'workspace/VGS/Archive' \
+    --exclude 'node_modules' \
+    --exclude 'gems' \
+    --exclude 'target' \
 	--exclude 'cache' \
 	--exclude '.cache' \
 	--exclude '.jmc' \
 	--exclude '.kube/http-cache' \
 	--exclude '.cups' \
 	--exclude '.docker' \
+    --exclude '.git' \
+    --exclude '.idea' \
 	--exclude '.dropbox' \
 	--exclude '.eclipse' \
 	--exclude '.flickr' \
 	--exclude '.matplotlib' \
+	--exclude '.minikube' \
+	--exclude '.npm' \
 	--exclude '.oracle_jre_usage' \
 	--exclude '.password-store' \
 	--exclude '.subversion' \
@@ -50,6 +61,7 @@ time rsync --archive --recursive --progress \
 	--exclude '.git' \
 	--exclude '.Trash' \
 	--exclude '*.jar' \
+    --exclude '*.pyc' \
 	--exclude 'target' \
 	--exclude '.DS_Store' \
 	--exclude '.idea' \
