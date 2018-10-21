@@ -59,6 +59,4 @@ eval `ssh-agent -s` > /dev/null 2>&1
 
 # Profiles
 . $HOME/workspace/Scripts/profiles/vgs
-. $HOME/workspace/Scripts/profiles/fnx
 . $HOME/workspace/Scripts/profiles/k8s
-. $HOME/workspace/Scripts/profiles/fu
