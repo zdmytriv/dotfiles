@@ -23,7 +23,7 @@ alias port='function _port(){ lsof -i TCP:$1; };_port'
 # Goodies
 alias kc='kubectl'
 alias port='function _port(){ lsof -i TCP:$1; };_port'
-alias git-log='git log --pretty=oneline --abbrev-commit'
+alias git-log='git log --date=short --pretty=format:"%C(124)%ad %C(24)%h %C(34)%an %C(252)%s%C(178)%d"'
 alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias dnsflush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -48,11 +48,11 @@ alias mci='mvn clean install | tee /tmp/mvn-`date "+%Y-%m-%d-%H-%M"`.log; termin
 alias mci2='mvn -T 1C clean install | tee /tmp/mvn-`date "+%Y-%m-%d-%H-%M"`.log; terminal-notifier -message "Build is done!" -title "Maven" -sound Frog'
 alias tcurl='curl -w "\n    time_namelookup:  %{time_namelookup}\n       time_connect:  %{time_connect}\n    time_appconnect:  %{time_appconnect}\n   time_pretransfer:  %{time_pretransfer}\n      time_redirect:  %{time_redirect}\n time_starttransfer:  %{time_starttransfer}\n -------------------  ----------------\n         time_total:  %{time_total}\n\n"'
 
-# hh
+# hstr
 export HISTFILE=~/.zsh_history
-export HH_CONFIG=prompt-bottom,rawhistory,keywords
-export HH_PROMPT="bck-i-search: "
-bindkey -s "\C-r" "\eqhh\n"
+export HSTR_CONFIG=prompt-bottom,rawhistory,keywords-matching
+export HSTR_PROMPT="bck-i-search: "
+bindkey -s "\C-r" "\eqhstr\n"
 
 # SSH-Agent fix
 eval `ssh-agent -s` > /dev/null 2>&1

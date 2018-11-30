@@ -41,3 +41,4 @@ brew install knock
 brew install lftp
 brew install ossp-uuid
 brew install wireshark
+brew install hstr
