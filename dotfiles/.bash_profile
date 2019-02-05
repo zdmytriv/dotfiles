@@ -32,6 +32,7 @@ alias www="python -m SimpleHTTPServer "
 alias weather='curl wttr.in/lviv'
 alias ipe='curl ipinfo.io/ip'
 alias ipi='ipconfig getifaddr en0'
+alias cheat='function _cheat() { curl https://cht.sh/$1; }; _cheat'
 
 # Scripts
 SCRIPTS='~/workspace/Scripts'
