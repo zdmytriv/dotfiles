@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BACKUP_DIR=${BACKUP_DIR:-$HOME}
-STORAGE_DIR=${STORAGE_DIR:-'/Volumes/Bckp'}
+STORAGE_DIR=${STORAGE_DIR:-'/System/Volumes/Data/Bckp'}
 DIR_NAME=${DIR_NAME:-`date "+%Y-%m-%d-%V"`}
 
 if [ ! -d "$STORAGE_DIR" ]
@@ -71,6 +71,7 @@ time rsync --archive --recursive --progress \
     --exclude '.DS_Store' \
     --exclude '.idea' \
     --exclude '.iml' \
+    --exclude 'Google Drive' \
     "$BACKUP_DIR/" "$DESTINATION_DIR"
 
 echo "Backup is done"

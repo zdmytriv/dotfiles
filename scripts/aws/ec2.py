@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import json
 
 import boto3
 from tabulate import tabulate
@@ -24,16 +25,16 @@ def list_envs(aws_profile):
         if len(ec2_env['Instances']) == 0:
             continue
 
-        instance = ec2_env['Instances'][0]
-        id = instance['InstanceId']
-        private_ip = instance['PrivateIpAddress'] if 'PrivateIpAddress' in instance else '-'
-        public_ip = instance['PublicIpAddress'] if 'PublicIpAddress' in instance else '-'
-        
-        if 'Tags' in instance:
-            for tag in instance['Tags']:
-                if tag['Key'] == 'Name':
-                    result.append([tag['Value'], id, private_ip, public_ip])
-                    break
+        for instance in ec2_env['Instances']:
+            id = instance['InstanceId']
+            private_ip = instance['PrivateIpAddress'] if 'PrivateIpAddress' in instance else '-'
+            public_ip = instance['PublicIpAddress'] if 'PublicIpAddress' in instance else '-'
+
+            if 'Tags' in instance:
+                for tag in instance['Tags']:
+                    if tag['Key'] == 'Name':
+                        result.append([tag['Value'], id, private_ip, public_ip])
+                        break
 
     result = sorted(result, key=lambda k: k[0])
 
