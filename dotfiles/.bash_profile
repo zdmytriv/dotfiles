@@ -21,9 +21,10 @@ alias weather='curl wttr.in/lviv'
 alias port='function _port(){ lsof -i TCP:$1; };_port'
 
 # Goodies
-alias kc='kubectl'
+alias k='kubectl'
 alias port='function _port(){ lsof -i TCP:$1; };_port'
 alias git-log='git log --date=short --pretty=format:"%C(124)%ad %C(24)%h %C(34)%an %C(252)%s%C(178)%d"'
+alias git-undo='git reset --soft HEAD~1'
 alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias dnsflush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -33,6 +34,13 @@ alias weather='curl wttr.in/lviv'
 alias ipe='curl ipinfo.io/ip'
 alias ipi='ipconfig getifaddr en0'
 alias cheat='function _cheat() { curl https://cht.sh/$1; }; _cheat'
+alias psql='/Applications/Postgres.app/Contents/Versions/9.6/bin/psql'
+alias kubectl-all='function _k8s_all_resources(){ kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n ${1:-default}; };_k8s_all_resources'
+alias k8s-istio-ingress-gateway-port-forwarding='kubectl -n istio-system port-forward $(kubectl -n istio-system get pods -listio=ingressgateway -o=jsonpath="{.items[0].metadata.name}") 15000'
+alias k8s-istio-ingress-gateway-logs='kubectl -n istio-system logs $(kubectl -n istio-system get pods -listio=ingressgateway -o=jsonpath="{.items[0].metadata.name}") --tail=300 -c istio-proxy'
+alias k8s-gitops-help-operator-logs='stern --tail 100 -l app=flux-helm-operator -n gitops'
+alias k8s-gitops-flux-logs='stern --tail 100 -l app=flux -n gitops'
+alias k8s-ingress-logs='stern --tail 100 -l app=nginx-ingress -n nginx-ingress'
 
 # Scripts
 SCRIPTS='~/workspace/Scripts'
