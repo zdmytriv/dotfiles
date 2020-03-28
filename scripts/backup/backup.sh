@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BACKUP_DIR=${BACKUP_DIR:-$HOME}
-STORAGE_DIR=${STORAGE_DIR:-'/System/Volumes/Data/Bckp'}
+STORAGE_DIR=${STORAGE_DIR:-'/Volumes/Dumpster/Backup/'}
 DIR_NAME=${DIR_NAME:-`date "+%Y-%m-%d-%V"`}
 
 if [ ! -d "$STORAGE_DIR" ]
@@ -23,9 +23,12 @@ time rsync --archive --recursive --progress \
     --exclude 'Desktop' \
     --exclude 'Documents' \
     --exclude 'Downloads' \
+    --exclude 'FindUsages.tgz' \
     --exclude 'Dropbox' \
     --exclude 'Library' \
     --exclude 'Movies' \
+    --exclude 'go' \
+    --exclude 'Volumes' \
     --exclude '.node-gyp' \
     --exclude 'Music' \
     --exclude 'Podcasts' \

@@ -25,9 +25,11 @@ alias k='kubectl'
 alias port='function _port(){ lsof -i TCP:$1; };_port'
 alias git-log='git log --date=short --pretty=format:"%C(124)%ad %C(24)%h %C(34)%an %C(252)%s%C(178)%d"'
 alias git-undo='git reset --soft HEAD~1'
+alias git-origin-master='git add .; git commit -m "update"; git push origin master'
+alias git-upstream-master='git add .; git commit -m "update"; git push upstream master'
 alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-alias dnsflush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias dns-flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias http-ngrok="ngrok http "
 alias www="python -m SimpleHTTPServer "
 alias weather='curl wttr.in/lviv'
