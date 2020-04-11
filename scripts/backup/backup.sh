@@ -21,6 +21,7 @@ time rsync --archive --recursive --progress \
     --exclude 'Applications' \
     --exclude 'ArchiCAD' \
     --exclude 'Desktop' \
+    --exclude '.terragrunt-cache' \
     --exclude 'Documents' \
     --exclude 'Downloads' \
     --exclude 'FindUsages.tgz' \
